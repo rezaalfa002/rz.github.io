@@ -190,7 +190,7 @@ app.get('/', (req, res) => {
 
   app.get('/contact', async (req, res) => {
     const contacts = await Contact.find()
-    res.render('Contact',{
+    res.render('contact',{
       layout: 'layouts/main-layout',
       title :  ' Halaman Contact',
       contacts : contacts,
