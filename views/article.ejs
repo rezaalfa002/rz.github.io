@@ -1,0 +1,60 @@
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Daftar Artikel</h2>
+            <hr/>
+            <% if (msg.length !==0) { %>
+                <br class="alert alert-success" role="alert">
+                    <%= msg %> 
+                  </div>
+            <% } %>
+            
+                </thead>
+                <tbody>
+                    <% if (articles.length === 0) { %>
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-danger" role="alert">
+                                    Data Contact TIDAK ADA.
+                                </div>  
+                            </td>
+                        </tr>
+                    <% } %>
+
+                     <!-- Main Content-->
+        <div class="container">
+            <div class="row"> 
+                    <% articles.forEach(article => { %> 
+                   <div class="row row-cols-1 row-cols-md-2 g-4">
+                
+                        <div class="col">
+                            <div class="card">
+                        <img src="/img/home-bg.jpg" class="card-img-top" alt="...">
+                       
+                        <div class="card-body">
+                        <a href="<%= `/article/${article.title}`  %>">
+                            <h2 class="card-title"><%= article.title  %> </h2>
+                            <h3 class="card-text"><%= article.subtitle %></h3>
+                        </a>
+                        <p class="card-text">
+                            Posted by
+                            <a href="#!">Alfareza</a>
+                            Dari Rumah Sendiri
+                        </p>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            
+                </br>
+                    <% }) %> 
+                
+                
+            </div>
+        </div>
+                </tbody>
+              
+        </div>
+    </div>
+</div>

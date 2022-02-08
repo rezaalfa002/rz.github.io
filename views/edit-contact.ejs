@@ -1,0 +1,49 @@
+<div class="container mt-3">
+    <div class="row">
+         <div class="col-md-6 mt-6">
+            <h2>Form Ubah Data Contact</h2>
+
+            <% if (typeof errors != 'undefined') { %>
+                <!-- alert dari bootstrap -->
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %> </li>
+                         
+                        <% }) %>
+                    </ul>
+                  </div>
+            <% } %>
+
+            <form method="post" action="/contact?_method=PUT"> <!-- ini dari bootstrap FORM-->
+             <input type="hidden" name="_id" value="<%= contact._id%>">
+              <input type="hidden" name="oldNama" value="<%= contact.oldNama || contact.nama %>">
+              <!-- alt+shift+bawah -->
+                <div class="mb-3"> 
+                  <label for="nama" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="nama" name="nama" required
+                  value="<%= contact.nama %>">
+                  </div>
+                <div class="mb-3">
+                  <label Sfor="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" required
+                  value="<%= contact.email %>">
+                  </div>
+                <div class="mb-3">
+                  <label for="nohp" class="form-label">No HP</label>
+                  <input type="text" class="form-control" id="nohp" name="nohp" required
+                  value="<%= contact.nohp %>">
+                  </div>
+                <!-- <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div> -->
+                <!-- <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+                <button type="submit" class="btn btn-primary mt-2">Ubah Data Contact</button>
+              </form>
+         </div>
+    </div>
+</div>

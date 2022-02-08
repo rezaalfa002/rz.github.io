@@ -1,0 +1,59 @@
+<div class="container mt-3">
+    <div class="row">
+         <div class="col-md-6 mt-6">
+            <h2>Lampiran Ubah Artikel</h2>
+
+            <% if (typeof errors != 'undefined') { %>
+                <!-- alert dari bootstrap -->
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %> </li>
+                         
+                        <% }) %>
+                    </ul>
+                  </div>
+            <% } %>
+
+            <!-- tinymce/docx layout on textarea -->
+            <script src="https://cdn.tiny.cloud/1/utatpea1750wxg0fqc5i1tbvzhf5rm9w040tuguij4w2v5z6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+            <script>
+              tinymce.init({
+                selector: '#mytextarea'
+              });
+            </script>
+
+            <form method="post" action="/article?_method=PUT"> <!-- ini dari bootstrap FORM-->
+             <input type="hidden" name="_id" value="<%= article._id%>">
+              <input type="hidden" name="oldTitle" value="<%= article.oldTitle || article.title %>">
+              <!-- alt+shift+bawah -->
+                <div class="mb-3"> 
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title" required
+                  value="<%= article.title %>">
+                  </div>
+                <div class="mb-3">
+                  <label Sfor="subtitle" class="form-label">Subtitle</label>
+                  <input type="subtitle" class="form-control" id="subtitle" name="subtitle" required
+                  value="<%= article.subtitle %>">
+                  </div>
+                  <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Content</label>
+                        <textarea id="mytextarea" class="mytextarea" name="content" rows="20" cols="20" placeholder="Content" ><%= article.content %></textarea>
+                    </div>
+                </div>
+                  
+                <!-- <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div> -->
+                <!-- <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+                <button type="submit" class="btn btn-primary mt-2">Ubah Artikel</button>
+              </form>
+         </div>
+    </div>
+</div>
