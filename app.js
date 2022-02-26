@@ -84,7 +84,7 @@ app.get('/', (req, res) => {
 
   app.get('/article/add', (req, res) => {
     res.render('add-article', {
-      title : 'Lampiran Tambah Article',
+      title : 'Form Tambah Article',
       layout : 'layouts/main-layout',
     })
   })
@@ -105,7 +105,7 @@ app.get('/', (req, res) => {
   
     if (!errors.isEmpty()) {
       res.render('add-article', {
-        title : 'Lampiran Tambah Artikel',
+        title : 'Form Tambah Artikel',
         layout : 'layouts/main-layout',
         errors : errors.array(), //buat manggil alert error add-contact
       })
@@ -131,7 +131,7 @@ app.get('/', (req, res) => {
     const article = await Article.findOne({title : req.params.title})
   
     res.render('edit-article', {
-      title : 'Lampiran Ubah Artikel',
+      title : 'Form Ubah Artikel',
       layout : 'layouts/main-layout',
       article,
     })
@@ -153,7 +153,7 @@ app.get('/', (req, res) => {
   
     if (!errors.isEmpty()) {
       res.render('edit-article', {
-        title : 'Lampiran Ubah Artikel',
+        title : 'Form Ubah Artikel',
         layout : 'layouts/main-layout',
         errors : errors.array(), //buat manggil alert error add-contact
         article : req.body, //hati2 jika res.body maka ga akan muncul
