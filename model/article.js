@@ -11,7 +11,22 @@ const Article = mongoose.model('Article',{
     },
     content : {
       type : String,
-      
+      required : true,
+    },
+    image : {
+      type : String,
+    },
+    author : {
+      type : String,
+      required : true,
+    },
+    tanggal : {
+      type : String,
+      required : true,
+    },
+    sosmed : {
+      type : String,
+      required : true,
     },
   })
 

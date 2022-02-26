@@ -166,6 +166,11 @@ app.get('/', (req, res) => {
               title : req.body.title,
               subtitle : req.body.subtitle,
               content : req.body.content,
+              image : req.body.image,
+              author : req.body.author,
+              tanggal : req.body.tanggal,
+              sosmed : req.body.sosmed,
+              
             },
           }
         ).then((result) =>{
